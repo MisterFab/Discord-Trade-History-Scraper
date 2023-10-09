@@ -4,7 +4,7 @@ This repository houses a comprehensive tool designed for traders keen on extract
 
 ## Features
 
-- Discord Data Extraction: Efficiently fetches all messages from designated Discord channels based on custom criteria
+- Discord Data Extraction: Efficiently fetches all messages from designated Discord channels based on custom criteria.
 - Data Filtering: Incorporates regular expressions for precise filtering and processing of pertinent trading data from Discord messages.
 - Historical Data Retrieval: Taps into the Polygon API to amass historical price data for recognized trades.
 - Excel Integration: Meticulously processes the data and channels the results into well-structured Excel sheets.
