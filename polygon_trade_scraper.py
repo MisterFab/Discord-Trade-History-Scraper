@@ -50,12 +50,16 @@ def get_data(expiry, start_date, start_time, symbol, type, strike, token):
     return high, low, entry, datetime.strftime(expiry, '%y%m%d'), url
 
 def process_row(row):
+    global processed_rows
     url = ''
     try:
         expiry = datetime.strptime(row['Expiry'], '%d%b%y') if pd.notna(row['Expiry']) else datetime.strptime(str(row['Date']),'%Y-%m-%d')
         high, low, entry, expiry_for_ticker, url = get_data(expiry, str(row['Date']), str(row['Time'][:6].replace(':', '')), row['Symbol'], row['Type'], float(row['Strike']), API_TOKEN)
         
         max_profit = float(high) / float(entry) - 1
+        processed_rows += 1
+        if processed_rows % 10 == 0:
+            logging.info(f"Processed {processed_rows} rows so far.")
         return high, low, entry, expiry_for_ticker, max_profit
     except Exception as e:
         logging.error(f"Error processing url: {url}")
@@ -67,14 +71,20 @@ def main():
     writer = pd.ExcelWriter('trades_finished.xlsx')
 
     for sheet_name in xls.sheet_names:
+        logging.info(f"Processing sheet: {sheet_name}.")
         contracts_file = pd.read_excel(xls, sheet_name=sheet_name)
         df = pd.DataFrame(contracts_file)
+        logging.info(f"Sheet {sheet_name} has {len(df)} rows to process.")
         
+        global processed_rows 
+        processed_rows = 0
         result = df.apply(process_row, axis=1, result_type='expand')
         df['High'], df['Low'], df['Entry'], df['Expiry'], df['Max Profit'] = result[0], result[1], result[2], result[3], result[4]
         
         df.to_excel(writer, sheet_name=sheet_name, index=False)
+        logging.info(f"Completed processing for sheet: {sheet_name}.")
 
+    logging.info("All sheets processed. Writing to trades_finished.xlsx.")
     writer.save()
 
 if __name__ == '__main__':
