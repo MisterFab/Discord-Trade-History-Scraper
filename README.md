@@ -17,6 +17,7 @@ This repository houses a comprehensive tool designed for traders keen on extract
 
 ## Usage
 
+- Add discord and polygon token to DISCORD_TOKEN and POLYGON_TOKEN in the environment variables.
 - Configure the data.json file with relevant parameters for filtering and extracting trade data from your Discord channels. I suggest https://regex101.com/ to test your regular expressions.
 
 ## Contributing

@@ -63,7 +63,7 @@ def process_row(row):
 
 
 def main():
-    xls = pd.ExcelFile('trades.xlsx')
+    xls = pd.ExcelFile('trades_scraped.xlsx')
     writer = pd.ExcelWriter('trades_finished.xlsx')
 
     for sheet_name in xls.sheet_names:

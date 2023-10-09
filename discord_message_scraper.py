@@ -105,7 +105,7 @@ async def main():
         if sheet:
             sheets.update(sheet)
     
-    writer = pd.ExcelWriter('trades.xlsx')
+    writer = pd.ExcelWriter('trades_scraped.xlsx')
     for sheet_name, sheet_df in sheets.items():
         sheet_df.to_excel(writer, sheet_name, index=False)
     writer.save()
