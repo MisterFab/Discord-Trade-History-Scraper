@@ -1,0 +1,14 @@
+[
+    {
+        "name": "Brick",
+        "channel_id": 851265711527428176,
+        "user_id": 725962285259948093,
+        "one_author_channel": false,
+        "regex": "^(?!.*\\bSTO\\b)\\b[A-Za-z]+\\s*((?:\\d{1,2}\\/\\d{1,2})|(?:[0-9.]+\\s*[pc]\\b))\\s*((?:\\d{1,2}\\/\\d{1,2})|(?:[0-9.]+\\s*[pcPC]\\b))",
+        "regex_date": "\\d+\\/\\d+",
+        "regex_symbol": "^\\b[A-Za-z]+",
+        "regex_type": "(?<=\\d)(\\s[c|p|C|P]|[c|p|C|P])",
+        "regex_strike": "(\\d+\\.\\d+|\\d+)\\s*(?=(c|p|C|P))",
+        "embed": false
+    }
+]
