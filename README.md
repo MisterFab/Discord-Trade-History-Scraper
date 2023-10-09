@@ -6,8 +6,10 @@ This repository houses a comprehensive tool designed for traders keen on extract
 
 ABNB 137c 9/1 0.26
 
-Date	    Time	        Author	        Symbol	Expiry	Type    Strike	Entry	High	Low	    Max Profit
-2023-08-31	18:55:23.654000	bricktrades#0	ABNB	230901	C	    137	    0.23	0.55	0.02	1.391304348 = 139.13%
+| Date       | Time               | Author       | Symbol | Expiry | Type | Strike | Entry | High | Low  | Max Profit          |
+|------------|--------------------|--------------|--------|--------|------|--------|-------|------|------|--------------------|
+| 2023-08-31 | 18:55:23.654000    | bricktrades#0| ABNB   | 230901 | C    | 137    | 0.23  | 0.55 | 0.02 | 1.391304348 = 139.13% |
+
 
 ## Features
 
